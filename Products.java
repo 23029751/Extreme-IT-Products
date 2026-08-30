@@ -2,10 +2,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-/**
- * Products.java
- * Contains all the working methods for the Extreme IT Products application.
- */
+
 public class Products {
 
     private ArrayList<ReportData> productList;
@@ -16,9 +13,7 @@ public class Products {
         scanner = new Scanner(System.in);
     }
 
-    // ---------------------------------------------------------------
-    // Q.1.1 - Main application loop / welcome screen
-    // ---------------------------------------------------------------
+    
     public void run() {
 
         while (true) {
@@ -85,9 +80,7 @@ public class Products {
         System.out.println("(6) Exit Application.");
     }
 
-    // ---------------------------------------------------------------
-    // Q.1.2, Q.1.4, Q.1.5, Q.1.6, Q.1.7 - Capture a new product
-    // ---------------------------------------------------------------
+    
     public void CaptureProduct() {
         System.out.println("CAPTURE A NEW PRODUCT");
         System.out.println("****************************");
@@ -122,14 +115,14 @@ public class Products {
 
         ReportData product = new ReportData(code, name, category, warranty, price, stock, supplier);
 
-        // Q.1.2 - store the product using arrays/array lists
+        
         SaveProduct(product);
 
-        // Q.1.7 - confirm successful save
+        
         System.out.println("Product details has been saved successfully!!!");
     }
 
-    // Helper: Q.1.4 & Q.1.5 - validate product category, re-prompt if invalid
+    
     private String getValidCategory() {
         String[] categories = {"Desktop Computer", "Laptop", "Tablet", "Printer", "Gaming Console"};
         int choice = -1;
@@ -150,13 +143,13 @@ public class Products {
                     return categories[choice - 1];
                 }
             } catch (NumberFormatException e) {
-                // fall through to error message below
+                
             }
             System.out.println("Invalid product category. Please re-enter a valid product category.\n");
         }
     }
 
-    // Helper: validate price input
+    
     private double getValidPrice(String name) {
         while (true) {
             System.out.print("Enter the price for " + name + " >> ");
@@ -167,13 +160,13 @@ public class Products {
                     return price;
                 }
             } catch (NumberFormatException e) {
-                // fall through
+                
             }
             System.out.println("Invalid price. Please enter a numeric value.");
         }
     }
 
-    // Helper: validate stock level input
+    
     private int getValidStock(String name) {
         while (true) {
             System.out.print("Enter the stock level for " + name + " >> ");
@@ -184,22 +177,18 @@ public class Products {
                     return stock;
                 }
             } catch (NumberFormatException e) {
-                // fall through
+                
             }
             System.out.println("Invalid stock level. Please enter a whole number.");
         }
     }
 
-    // ---------------------------------------------------------------
-    // Q.1.2 - Save a product into memory (array list)
-    // ---------------------------------------------------------------
+    
     public void SaveProduct(ReportData product) {
         productList.add(product);
     }
 
-    // ---------------------------------------------------------------
-    // Q.1.8 - Search for a product by product code
-    // ---------------------------------------------------------------
+    
     public void SearchProduct() {
         System.out.print("Please enter the product code to search: ");
         String code = scanner.nextLine().trim();
@@ -217,7 +206,7 @@ public class Products {
         }
     }
 
-    // Helper: locate a product by its code, returns null if not found
+    
     private ReportData findProductByCode(String code) {
         for (ReportData p : productList) {
             if (p.getProductCode().equalsIgnoreCase(code)) {
@@ -227,7 +216,7 @@ public class Products {
         return null;
     }
 
-    // Helper: print a single product's details in the required format
+    
     private void printProductDetails(ReportData p) {
         System.out.println("PRODUCT CODE:          " + p.getProductCode());
         System.out.println("PRODUCT NAME:          " + p.getProductName());
@@ -238,9 +227,7 @@ public class Products {
         System.out.println("PRODUCT SUPPLIER:      " + p.getProductSupplier());
     }
 
-    // ---------------------------------------------------------------
-    // Q.1.9 - Delete a product (with confirmation)
-    // ---------------------------------------------------------------
+    
     public void DeleteProduct() {
         System.out.print("Please enter the product code to delete: ");
         String code = scanner.nextLine().trim();
@@ -263,9 +250,7 @@ public class Products {
         }
     }
 
-    // ---------------------------------------------------------------
-    // Q.1.10 - Update specific details of a product
-    // ---------------------------------------------------------------
+    
     public void UpdateProduct() {
         System.out.print("Please enter the product code to update: ");
         String code = scanner.nextLine().trim();
@@ -302,9 +287,7 @@ public class Products {
         System.out.println("Product details has been updated successfully!!!");
     }
 
-    // ---------------------------------------------------------------
-    // Q.1.11 - Print product report using ReportData get methods
-    // ---------------------------------------------------------------
+    
     public void PrintReport() {
         System.out.println("PRODUCT REPORT");
         System.out.println("====================================================================");
@@ -343,9 +326,7 @@ public class Products {
         System.out.println("====================================================================");
     }
 
-    // ---------------------------------------------------------------
-    // Q.1.12 - Exit the application
-    // ---------------------------------------------------------------
+    
     public void ExitApplication() {
         System.out.println("Thank you for using the Bright Future Technologies Application. Goodbye!");
     }
