@@ -1,3 +1,4 @@
+//MANTSHA FHULUFHELO 23029751
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -73,9 +74,7 @@ public class Products {
         }
     }
 
-    // ---------------------------------------------------------------
-    // Q.1.1 - Displays the menu structure
-    // ---------------------------------------------------------------
+    
     public void DisplayMenu() {
         System.out.println("Please select one of the following menu items:");
         System.out.println("(1) Capture a new product.");
